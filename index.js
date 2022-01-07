@@ -130,8 +130,6 @@ console.log(ages);
 console.log(rates);
 
 
-
-
 // Lecture: Functions returning functions
 
 function interviewQuestion(job) {
@@ -283,4 +281,6 @@ var ages = arrayCalc(years, calculateAge);
 var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
 console.log(ages);
 console.log(fullJapan);
+
+
 
