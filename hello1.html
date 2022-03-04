@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>DOM 1</title>
+<style media="all" type="text/css">
+#green
+{
+   background-color:green;
+}
+
+#hackme *
+{
+   transition-property: font-size;
+   transition-duration: 1s;
+}
+
+@keyframes heartbeat{
+60%{transform:scale(1) rotateZ(0deg);}
+75%{transform:scaleX(0.8) scaleY(0.9) rotateZ(-2deg);}
+88%{transform:scaleX(1.1) scaleY(1.1) rotateZ(2deg);}
+100%{transform:scale(1) rotateZ(0deg);}
+}
+.heartbeat{
+animation-duration: 1s;
+animation-iteration-count: infinite;
+animation-timing-function: ease-in-out;
+animation-name: heartbeat;
+transform-origin: center top 0px;
+display:inline-block; /*transform will not work on display inline*/
+}
+.heartbeat:hover{
+animation-duration: 0.5s;
+}
+
+/* this css that makes tags look like a button:*/
+.fake_button
+{
+padding-block-start: 0px;
+padding-inline-end: 8px;
+padding-block-end: 0px;
+padding-inline-start: 8px;
+border: 2px outset ThreeDLightShadow;
+background-color: ButtonFace;
+cursor: default;
+box-sizing: border-box;
+color: ButtonText;
+font: -moz-button;
+white-space: pre;
+text-align: center;
+text-shadow: none;
+white-space: inherit;
+text-indent: 0;
+display: inline-block;
+}
+.fake_button:active {
+border-style: inset;
+color: white;
+background-color: black;
+}
+</style>
+</head><body id="body"> <!-- rather than get by ID it is easier to use document.body -->
+
+<!--_______________________________ Events _________________________________-->
+<form action="#experiment2"><p>
+
+
+<button onclick="alert( 'Hello World!' );" type="button" name="names_are_only_for_servers_so_this_button_does_not_need_a_name"> Click Experiment </button>
+
+
+<button onclick="console.log( navigator.userAgent );" name="names_are_only_for_servers_so_this_button_does_not_need_a_name" type="button"> Console Experiment </button>
+
+
+<button type="button" > Hover Experiment 1 &amp; 2 </button>
+
+
+<button onclick="console.log( event );" type="button"> Event Experiment 1 </button>
+
+<button onclick="event;" type="submit"> Event Experiment 2 </button>
+
+<br /><small>-Internal Javascript Code-</small>
+<script>
+
+// This one is kind of advanced, you may want to skip it, maybe come back later after completing the rest the assignment.
+
+addEventListener;
+
+
+</script>
+</p>
+</form>
+
+<!--____________________________ Tag Connections ____________________________-->
+<p>
+
+<button onclick="alertExperiment( this );" type="button" value="Hello World!"> Alert Experiment 1 </button>
+<script>
+
+   function alertExperiment( buttonObject )
+   {
+       alert( buttonObject ); //what is that "this" variable I passed to this function? lets alert it and see...
+      
+       alert( buttonObject.getAttribute("value") ); // how to read HTML attributes from a tag object. Yes, to change them you use setAttribute().
+  
+       console.log( buttonObject ); // this uses the Browser's developer Console to print out the object for closer inspection; also MUCH less annoying than using alerts. console.warn() , console.info() are the same but display in another color in the console.
+  
+   }
+
+}deleteThisMistake<--
+
+</script>
+
+<br />
+<a onclick="alert_experiment_2( )" class="fake_button"> Alert Experiment 2 </a>
+<script>
+   // NOTE: This javascript is in the SAME shared space as the other script tags; it's all the same document no matter how many script tags you use!
+   // Major errors will kill your script from working at all; however, it only kills the script within this script tag, the other tags will be unharmed.
+
+   function alert_experiment_2( )
+   {
+      
+   }
+</script>
+
+<br />
+<a class="my_css_class" onclick="read_attribute_experiment( this )"> Read Tag Attribute Experiment </a>
+<script>
+
+// your function here:
+// NOTE: the HTML event attribute above and it's code which is supposed to run your function and the A tag object to it... "this"
+
+</script>
+
+<br />
+<a> Write Tag Attribute Experiment </a>
+<script>
+
+// your function here
+// you need to add an HTML event attribute to the tag above so something happens when you click it... don't forget to use "this"
+
+</script>
+
+<br />
+<a> innerHTML Experiment </a>
+<script>
+
+// your function here
+// don't forget to use "this"
+
+</script>
+
+
+</p>
+
+<!--_________________________ That DOM Environment _________________________-->
+<p>
+<div id="NSA" style="display:none;">No Strings Attached</div>
+<button onclick="" type="button"> Get Tag Object Experiment </button>
+<script>
+
+// your function here
+
+</script>
+
+
+<button onclick="" type="button"> Browser Window Width </button>
+<script>
+
+// your function here; unless you can fit all the code into the onclick above...
+
+</script>
+
+
+<!-- Skipped giving navigator.geolocation because it seems too difficult.
+*Example Application* of [navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator) Object: [Show me on Google Maps](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API#Live_Result)
+-->
+</p>
+
+
+<!--__________________________ Direct Appearance ______________________-->
+<p>
+
+
+<button onclick="this;" type="button"> Toggle Experiment 1 </button>
+<script>
+
+//function goes here
+
+</script>
+
+
+<button type="button"> Toggle Experiment 2 </button>
+<script>
+
+// remember the onclick
+// you will have to make a function for this one.
+
+</script>
+
+<button type="button"> Size Experiment 1 </button>
+<script>
+
+//function goes here
+
+</script>
+
+<button type="button"> Size Experiment 2 </button>
+<script>
+
+//function goes here
+
+</script>
+
+<button type="button"> Size Experiment + </button>
+<button type="button"> Size Experiment - </button>
+<script>
+
+// 1 function for both buttons! (use arguments to the function)
+// there are many ways to solve this one.
+// some debatable as far as being better and others are clearly better style; feel free to try different approaches and discuss them with me (but only submit 1 for grading, I don't want to deal with it there.)
+
+</script>
+
+</p>
+
+<!--____________________________ Form IO ____________________________-->
+<p>
+
+
+<button type="button"> Read Form Value Experiment 1 </button>
+<script>
+// uses password input at bottom of page with id="password"
+//function goes here
+
+</script>
+
+
+<button type="button"> Write Form Value Experiment 2 </button>
+<script>
+
+//function(s) goes here
+
+</script>
+
+
+</p>
+
+
+<!--____________________________ Callbacks ____________________________-->
+<p>
+
+
+<button type="button"> Countdown Experiment 1 </button>
+<script>
+
+//function goes here
+
+</script>
+
+
+<button type="button"> Countdown Experiment 2 </button>
+<script>
+
+//function(s) goes here
+
+</script>
+
+
+</p>
+
+<!--__________________________ Tree Transversal ____________________________-->
+<p>
+
+
+<button onclick="get_label_of_password()" type="button"> Find the LABEL </button>
+<script>
+
+function get_label_of_password(){
+   //code doesn't have to do anything in here; you can do this completely in the console.
+   // you may console.log( your results ) and that is ok with me
+}
+
+</script>
+
+<button onclick="get_password_input()" type="button"> Find password </button>
+<script>
+function get_password_input(){
+   //code doesn't have to do anything in here; you can do this completely in the console.
+   // you may console.log( your results ) and that is ok with me
+}
+</script>
+
+<button onclick="get_legend_of_password()" type="button"> Find the LEGEND </button>
+<script>
+
+function get_legend_of_password(){
+   //code doesn't have to do anything in here; you can do this completely in the console.
+   // you may console.log( your results ) and that is ok with me
+}
+
+</script>
+
+</p>
+<!--________________________________________________________________________-->
+
+<h1 id="countdown"> </h1>
+
+
+<form id="hackme">
+   <fieldset>
+       <legend>Demo form</legend>
+       <label>password: <input type="password" id="password" value="my secret" /></label>
+   </fieldset>
+</form>
+
+<!--________________________________________________________________________-->
+<script>
+// this is my code used as part of Event Experiment 2
+function test_hashchange(){
+   if( location.hash === "#experiment2" ){
+       alert( "You didn't stop the event in Event Experiment 2" );
+       location.hash=   "";
+   }
+}
+test_hashchange();
+window.addEventListener( "hashchange", test_hashchange, false );
+</script>
+</body></html>

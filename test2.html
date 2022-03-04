@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Adding meta information   -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HTML example" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="John Doe" />
+    <title>This is a Document</title>
+
+    <!-- adding inline CSS -->
+    <style>
+        .div-style{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            margin: 5px;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- This is first div   -->
+    <div class="div-style">
+    </div>
+    
+  <script>
+      // adding event listener and then appending div with same style using class
+      document.addEventListener('keypress',function(event){
+          if(event.keyCode === 97 || event.keyCode === 65){
+             var newElement = document.createElement("div");
+             newElement.classList.add("div-style");
+             document.body.appendChild(newElement);
+          }
+      });
+  </script>
+  </body>
+</html>
