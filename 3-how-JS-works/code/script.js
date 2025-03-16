@@ -93,7 +93,7 @@ var john = {
         console.log(2016 - this.yearOfBirth);
         
         function innerFunction() {
-            console.log(this);
+            console.log(this); // its window in this case, and undefined when 'strict' mode
         }
         innerFunction();
     }
