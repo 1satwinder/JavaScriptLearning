@@ -1,2 +1,5 @@
-# This repository conatin code for my javascript learning practice example.
+# This repository conatin code for javascript concepts.
+
+## Moreover it also has coding practice example 
+
 
