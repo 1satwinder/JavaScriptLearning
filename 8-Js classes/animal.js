@@ -9,7 +9,7 @@ class Animal {
       return "Earth";
     }
     let i = 12;
-   // this is instace method as it inside constructor
+    // this is instace method as it inside constructor
     this.location = function () {
       let combine = this.name + this.age + getName() + i;
 
@@ -18,10 +18,16 @@ class Animal {
   }
   // This is Prototype method
   getSomething() {
-    return `\nThis is prototype method ${this.age}`
+    return `\nThis is prototype method ${this.age}`;
+  }
+  // private method
+  #getPrivateMessageInner() {
+    return "kidha haal ne";
   }
 }
 
 let animal1 = new Animal("cat");
 // console.log("animal1", animal1);
 console.log("animal1 is", animal1.location(), animal1.getSomething());
+
+// animal1.#getPrivateMessageInner();  // acceessing private method gives error

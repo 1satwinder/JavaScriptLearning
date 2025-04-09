@@ -25,7 +25,7 @@ function Person2(name, job, gender){
     this.job=job;
     this.gender=gender;
     
-    Object.staticFun2 = function(){
+    Person2.staticFun2 = function(){
         console.log("This is a static function")
     }
 }
@@ -36,6 +36,6 @@ Person2.prototype.getUserInfo2 = function(){
 var talwinder = new Person2("Talwinder Singh", "Peace", "Male");
 talwinder.getUserInfo2();
 console.log(talwinder);
-// Person2.staticFun2();
+Person2.staticFun2();
 
 
