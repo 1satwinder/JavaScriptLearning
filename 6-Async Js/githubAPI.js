@@ -1,5 +1,7 @@
 // https://api.github.com/users/<<username>>
 
+// You're not checking if the response is successful (res.ok) 
+// before calling res.json(), which can lead to misleading results
 function getUser(username) {
   return new Promise((resolve, reject) => {
     fetch(`https://api.github.com/users/${username}`)
