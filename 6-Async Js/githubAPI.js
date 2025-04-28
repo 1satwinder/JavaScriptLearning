@@ -40,7 +40,10 @@ async function getUser2(username) {
   }
 }
 
+// the call site below will fail and gets throw messge from getUser2. So, it should also we wrapped in try/catch
 getUser2("1satwinder").then((res) => console.log("async res", res));
+
+
 // below code works becuase await can be used inside an async function or at the top level of a module.
 // let usr = await getUser2('1satwinder');
 // console.log('async res', usr);

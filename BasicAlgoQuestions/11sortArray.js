@@ -1,9 +1,6 @@
 const sortArray = (arr) => {
-
     console.log(arr.sort((a,b) => (a-b)));
-
 }
-
 
 let bubbleSort = (inputArr) => {
     let len = inputArr.length;
