@@ -1,23 +1,13 @@
-// throttle
-
-function throttle(fn, wait) {
-  let shouldThrottle = false;
-  return function (...args) {
-    if (shouldThrottle) return;
-    shouldThrottle = true;
-    fn.apply(this, args);
-    setTimeout(() => {
-      shouldThrottle = false;
-    }, wait);
-  };
+function flatter(arr) {
+  const result = [];
+  arr.forEach((item) => {
+    if (Array.isArray(item)) {
+      result.push(...flatter(item));
+    } else {
+      result.push(item);
+    }
+  });
+  return result;
 }
 
-function news(num) {
-  console.log("hello sir", num);
-}
-
-const th = throttle(news, 1000);
-th(1);
-th(2);
-th(3);
-th(4);
+console.log("hello", flatter([1, 2, [3, 4, [5, 6, [7, 8]]]]));

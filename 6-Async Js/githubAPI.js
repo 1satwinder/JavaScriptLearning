@@ -26,11 +26,11 @@ getUser1("1satwinder", (res) => console.log("callback res", res));
 // same example with async/await
 async function getUser2(username) {
   try {
-    let res = await fetch(`https://api.github.com/users/${username}`);
+    let res = await fetch(`https://api.github.com/users/${username}`);  // If no Internet, fetch() will throw e — goes to catch
     if (!res.ok) {
-      throw new Error("there is some error"); // this also rejects the promise
+      throw new Error("there is some error"); // manual throw - goes to catch and then rejects the promise
     }
-    const data = await res.json();
+    const data = await res.json();  // If response isn't valid JSON, this line throws a SyntaxError — goes to catch.
     return data; // this means resolve(data) as in native promise example
   } catch (err) {
     //     In async functions, any returned value resolves the promise.

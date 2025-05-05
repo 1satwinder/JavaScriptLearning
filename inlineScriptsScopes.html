@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Inline scripts: </h2>
+    <p>All script tags run in the same global execution context, in order, unless they are type="module".</p>
+    <script>
+      let letGlobalVariable = "Satwinder"; // directly avaiable in second inline script
+      var varGlobalVariable = "Canada"; // also available directly as well through window obj
+    </script>
+    <script>
+      console.log("let global variable", letGlobalVariable, "with window obj undefined", window.letGlobalVariable);
+      console.log("var global variable", varGlobalVariable, "with window obj accessible", window.varGlobalVariable);
+    </script>
+  </body>
+</html>

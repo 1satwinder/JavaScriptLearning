@@ -1,5 +1,3 @@
-
-
 // time complexity is O(n).
 const stringCompression = (str) => {
 const n = str.length;
