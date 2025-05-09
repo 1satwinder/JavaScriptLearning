@@ -33,10 +33,10 @@ async function getUser2(username) {
     const data = await res.json();  // If response isn't valid JSON, this line throws a SyntaxError — goes to catch.
     return data; // this means resolve(data) as in native promise example
   } catch (err) {
-    //     In async functions, any returned value resolves the promise.
+    // In async functions, any returned value resolves the promise.
     // If you return a value, the async function will resolve to that value.
-    // If you throw an error, the async function will reject with the thrown error.
-    throw { isError: true, error: "there is some error" }; // this mean reject()
+    // If you throw an error, the async function will reject promise with the thrown error.
+    throw { isError: true, error: "there is some error" }; // this mean reject(). catch errors in try block, then re-throw again for call site
   }
 }
 
