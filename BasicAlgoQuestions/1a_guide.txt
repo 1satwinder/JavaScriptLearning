@@ -1,0 +1,25 @@
+Part 1: Coding/Algorithm Questions
+
+1. Array & String Manipulation
+Two Sum: Find two numbers in an array that add up to a target.
+Reverse a String/Array: Classic question.
+Is Anagram: Check if two strings are anagrams.
+Flatten a Nested Array
+
+2. Object and Array Utilities
+Implement Array.prototype.map()
+Deep clone an object
+Debounce and Throttle functions
+
+3. Recursion & Tree Traversal
+Fibonacci using memoization
+
+Part 2: UI / Front-End Component Questions
+1. TodoList question
+With keyboard accessibility and focus management
+
+1. Build a custom dropdown menu
+With keyboard accessibility and focus management
+
+2. Implement a Tabs or Accordion UI
+Using React or Vue, manage internal state and accessibility

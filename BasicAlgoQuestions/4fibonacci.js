@@ -24,6 +24,14 @@ function fibo(n) {
   return fibo(n - 1) + fibo(n - 2);
 }
 
-for (let n = 0; n < 10; n++) {
-  console.log(fibo(n));
+console.log("Without Memoization", fibo(42));
+
+function fiboWithMemo(n, memo = {}) {
+  if(n in memo) return memo[n];
+  if (n === 0 || n === 1) return n;
+
+  memo[n] = fibo(n - 1, memo) + fibo(n - 2, memo);
+  return memo[n];
 }
+
+console.log("With Memoization", fiboWithMemo(42));

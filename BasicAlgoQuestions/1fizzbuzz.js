@@ -3,6 +3,7 @@
 // and for multiples of both, print "FizzBuzz."
 
 // Time complexity:  Single loop → O(n).
+// Space Complexity: O(1)
 
 function getSeries(num){
     for(let i=1; i<=num; i++){
@@ -14,4 +15,11 @@ function getSeries(num){
 }
 
 getSeries(20);
+
+
+// Rules of space complexity. Memory use depends on data structure used
+// 1) Primitives: O(1)
+// 2) Arrays/Set: O(n)
+// 3) Object/Map: O(n)
+
 
