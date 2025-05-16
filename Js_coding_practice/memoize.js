@@ -2,7 +2,7 @@ function memoize(fn) {
   const cache = new Map();
 
   return function (...args) {
-    const key = JSON.stringify(args);
+    const key = JSON.stringify(args); // creates a unique key from arguments
     if (cache.has(key)) {
       return cache.get(key);
     }

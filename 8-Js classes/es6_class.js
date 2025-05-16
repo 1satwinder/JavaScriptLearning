@@ -7,5 +7,4 @@ class human{
     }
 }
 
-
 console.log("result", new human().getName());

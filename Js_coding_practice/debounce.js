@@ -1,5 +1,5 @@
 function debounce(func, wait) {
-  let timer;
+  let timer = null;
   return function (...args) {
     clearTimeout(timer);
     timer = setTimeout(() => {
@@ -25,7 +25,7 @@ debouncedFunction(3);
 // Since the callback function will be invoked in a timeout, we need to ensure that the first argument to func.apply()/func.call() is the right value.
 // There are two ways to achieve this:
 
-//With normal javascript functions, `this` is bound when the function is called. With arrow functions, 
+//With normal javascript functions, `this` is bound when the function is called. With arrow functions,
 // `this` is bound to the context in which the function is originally created.
 
 // the wrong way
@@ -59,13 +59,12 @@ function getDebounced(fn, wait = 2000, immediate = false) {
   return function (...args) {
     const context = this;
     const callNow = immediate && !timer;
+    if (callNow) fn.apply(context, args); // called when immediate=true and timer=null
 
     clearTimeout(timer);
     timer = setTimeout(() => {
+      if (!immediate) fn.apply(context, args); // to handle regular use-case with immediate=false
       timer = null;
-      if (!immediate) fn.apply(context, args);
     }, wait);
-
-    if (callNow) fn.apply(context, args);
   };
 }

@@ -3,7 +3,7 @@
 // Sum up the duration fields.
 // Combine all the equipment used, de-duplicating the values and sorting alphabetically.
 
-export default function mergeData(sessions) {
+function mergeData(sessions) {
   let result = [];
   const userMap = {};
   for (const session of sessions) {
@@ -11,7 +11,7 @@ export default function mergeData(sessions) {
 
     if (!userMap[user]) {
       // first occurence
-      const newEntry = { user, duration, equipment: [...equipment] };
+      const newEntry = { user, duration, equipment };
       result.push(newEntry);
       userMap[user] = newEntry;
     } else {

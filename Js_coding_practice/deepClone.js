@@ -1,15 +1,17 @@
-function deepClone(value) {
-  if (typeof value !== "object" || value === null) {
-    return value;
+function deepClone(obj) {
+  if (obj === null || typeof obj !== "object") {
+    return obj; // primitives
   }
 
-  if (Array.isArray(value)) {
-    return value.map((item) => deepClone(item));
+  if (Array.isArray(obj)) {
+    return obj.map(deepClone);
   }
 
-  return Object.fromEntries(
-    Object.entries(value).map(([key, value]) => [key, deepClone(value)])
-  );
+  const clonedObj = {};
+  for (const key in obj) {
+    clonedObj[key] = deepClone(obj[key]);
+  }
+  return clonedObj;
 }
 
 // short hacky solution
@@ -17,8 +19,8 @@ function deepClone(value) {
 
 console.log(deepClone("foo"));
 console.log(deepClone(234));
-const obj = { user: { role: "admin", id: "123" } };
+const obj = { user: { role: "admin", id: "123" }, news: [1,2,3] };
 const clonedObj = deepClone(obj);
-console.log(clonedObj);
-
+console.log(clonedObj === obj);
+console.log("cloned Obj", clonedObj);
 // Topic: direct assignment, shallow copy, deep copy

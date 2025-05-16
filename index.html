@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">This is the index.html</h1>
+       <div role="button" id="button" tabindex="0">Click Me!</div> <!-- Missing Keyboard Accessibility Here -->
+      <label>Name: <input type="name" autocomplete="name" required></label>  <!-- wrapping input inside label -->
+    </div>
+    <script>
+      function handleChange() {
+        document.getElementById("button").addEventListener("click", () => {
+          document.getElementById("title").innerHTML = "Title is updated";
+        });
+      }
+      handleChange();
+    </script>
+  </body>
+</html>

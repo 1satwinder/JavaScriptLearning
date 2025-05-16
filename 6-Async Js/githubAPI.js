@@ -36,7 +36,7 @@ async function getUser2(username) {
     // In async functions, any returned value resolves the promise.
     // If you return a value, the async function will resolve to that value.
     // If you throw an error, the async function will reject promise with the thrown error.
-    throw { isError: true, error: "there is some error" }; // this mean reject(). catch errors in try block, then re-throw again for call site
+    throw { isError: true, error: "Failed to make request" }; // this mean reject(). catch errors in try block, then re-throw again for call site
   }
 }
 
@@ -47,3 +47,5 @@ getUser2("1satwinder").then((res) => console.log("async res", res));
 // below code works becuase await can be used inside an async function or at the top level of a module.
 // let usr = await getUser2('1satwinder');
 // console.log('async res', usr);
+
+// Important: Adding timeout to fetch, like fail the request no response in given time. Abort Controller
